@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main-window">
+            <!-- Div Password -->
+            <div class="password-row">
+                <div class="password-content"></div>
+                <button class="regenerate-btn" type="button">
+                    <img src="regenerate-ico.png" alt="Generate">
+                </button>
+                <button class="copy-btn">Copy</button>
+            </div>
+            
+            <!-- Div Length -->
+            <div class="length-control">
+                <div class="length-control">
+                    <label for="length-slider">Length: <span id="length-value">12</span></label>
+                    <input type="range" id="length-slider" min="4" max="32" value="12">
+                </div>
+            </div>
+        
+        </div>
+        <script src="generate_password.js"></script>
+    </body>
+</html
