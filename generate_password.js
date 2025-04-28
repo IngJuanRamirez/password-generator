@@ -13,7 +13,8 @@ function generate_password(length = 12) {
 document.addEventListener('DOMContentLoaded', () => {
     const passwordDiv = document.querySelector('.password-content');
     const regenerateBtn = document.querySelector('.regenerate-btn');
-    const copyBtn = document.querySelector('.copy-btn'); // Opcional
+    const copyBtn = document.querySelector('.copy-btn');
+    const copyAlert = document.querySelector('#alert');
 
     // Length values
     const length_slider = document.getElementById('length-slider');
@@ -45,7 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // copy button function
     copyBtn.addEventListener('click', function() {
-        navigator.clipboard.writeText(currentPassword);
-        alert("Password copied: " + currentPassword);
+        navigator.clipboard.writeText(currentPassword)
+        .then(() => {
+            copyAlert.classList.add('show');
+
+            // Ocultar despues de un tiempo
+            setTimeout(() => {
+                copyAlert.classList.remove('show');
+            }, 1500);
+        })
+        .catch(err => {
+            console.error("Error to copy to the clipboard: ", err);
+        });
     });
 });
