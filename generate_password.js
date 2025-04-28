@@ -42,4 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
             passwordDiv.textContent = currentPassword;
         }, 300);
     });
+
+    // copy button function
+    copyBtn.addEventListener('click', function() {
+        navigator.clipboard.writeText(currentPassword);
+        alert("Password copied: " + currentPassword);
+    });
 });
