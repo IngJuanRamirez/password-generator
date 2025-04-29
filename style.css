@@ -12,7 +12,7 @@ body {
     align-items: center;
     min-height: 100vh;
 
-    background-image: url(src/media/img-background.jpg);
+    background-color: #6a6a6c2d;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -48,6 +48,9 @@ body {
     inset: -3px;
     z-index: -1;
     background: linear-gradient(45deg, #ff00cc, #3333ff, #ff00cc);
+    /*background: linear-gradient(45deg, #ffb3a7, #ff4e42, #b80000);*/
+
+
     background-size: 200%;
     border-radius: 12px;
     animation: glowing 3s linear infinite;
@@ -132,6 +135,9 @@ button {
 .length-control {
     width: 100%;
     margin-top: 5px;
+
+    align-items: center;
+    display: grid;
 }
 
 #length-value, label {
@@ -145,4 +151,22 @@ button {
 
 #length-slider {
     accent-color: #ff00cc;
+}
+
+.checkbox-div {
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 5px;
+    
+    color: #fff;
+    
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5); /* aumenta 1.5 veces su tamaño */
+    margin-right: 10px;
+    accent-color: #fff; /* color del checkbox si se permite */
+
 }

@@ -1,11 +1,25 @@
-function generate_password(length = 12) {
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
-    let password = "";
+function generate_password(length = 12, mayus = true, minus = true, number = true, signs = true) {
+    let characters = "";
 
+    if (mayus) {
+        characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    if (minus) {
+        characters += "abcdefghijklmnopqrstuvwxyz";
+    }
+    if (number) {
+        characters += "0123456789";
+    }
+    if (signs) {
+        characters += "!@#$%^&*()_+";
+    }
+
+    let password = "";
     for (let i = 0; i < length; i++) {
         const random_index = Math.floor(Math.random() * characters.length);
         password += characters[random_index];
     }
+
     return password;
 }
 
@@ -15,6 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const regenerateBtn = document.querySelector('.regenerate-btn');
     const copyBtn = document.querySelector('.copy-btn');
     const copyAlert = document.querySelector('#alert');
+
+    // Variables de los checkbox
+    const check_ABC = document.getElementById("checkbox-mayus");
+    const check_abc = document.getElementById("checkbox-minus");
+    const check_number = document.getElementById("checkbox-number");
+    const check_signs = document.getElementById("checkbox-signs");
 
     // Length values
     const length_slider = document.getElementById('length-slider');
@@ -39,7 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         setTimeout(() => {
             icon.style.transform = 'rotate(0deg)';
-            currentPassword = generate_password(parseInt(length_slider.value));
+            currentPassword = generate_password(
+                parseInt(length_slider.value), 
+                check_ABC.checked,
+                check_abc.checked,
+                check_number.checked,
+                check_signs.checked
+            );
             passwordDiv.textContent = currentPassword;
         }, 300);
     });
